@@ -9,7 +9,7 @@
     name: "{{ item }}"
     state: installed
   loop:
-  - nodej
+  - nodejs
   - mysql
 
   
