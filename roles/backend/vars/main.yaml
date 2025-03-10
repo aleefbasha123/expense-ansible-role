@@ -1,4 +1,4 @@
 login_user: root
-login_host: 172.31.95.217
+login_host: db.aleef.fun
 login_password: ExpenseApp@1
-db_host: 172.31.95.217
+db_host: db.aleef.fun
