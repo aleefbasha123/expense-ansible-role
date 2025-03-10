@@ -17,7 +17,7 @@
     executable: pip3.9
 
 - name: Make sure A can connect to B database
-  mysqld:
+  #mysqld:
     login_user=root
     login_password= "{{ mysql_root_password }}"
     login_host= "{{ login_host }}"
