@@ -2,4 +2,4 @@
   login_password: ExpenseApp@1
   login_host: db.aleef.fun
   DB_HOST: db.aleef.fun
-  app_loaction: /app
+  app_location: /app
