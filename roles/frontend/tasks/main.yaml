@@ -19,12 +19,18 @@
     path: /usr/share/nginx/html
     state: directory
 
+
 - name: download and extract frontend code
   ansible.builtin.unacrchive:
     src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
     dest: /usr/share/nginx/html
     remote_src: yes
   
+  # If there is change in configuation only, then you need to restart nginx
 - name: copy backend conf 
   ansible.builtin.copy:
-    src: expense.
+    src: expense.conf.j2
+    dest: /etc/nginx/default.d/expense.conf
+  
+  notify:
+  - restart nginx
