@@ -1,37 +1,30 @@
 - name: install mysql server
-  ansible.builtin.dnf:
-   name: mysql-server
-   state: latest
+  anisble.builtin.dnf:
+    name: mysql-server
+    state: latest
 
-- name: start and enable mysql server
+- name: start and enabled nginx
   ansible.builtin.service:
     name: mysqld
     state: started
     enabled: yes
 
-- name: install python db ddependences
+- name: Install paython db dependences
   ansible.builtin.pip:
     name:
     - PyMySQL
-    - cryptography
-    executable: pip3.9 
+    - cryptpgraphy
+    executable: pip.9
 
-
-# checking password is already setup or not
-- name: check db connections
-  community.mysql.mysql_info:
-    login_user: root
-    login_password: "{{ mysql_root_password }}"
-    login_host: "{{ login_host }}"
-    filter: version
-  ignore_errors: yes
-  register: mysql_connection_output
-
-- name: prin output
-  ansible.builtin.debug:
-    msg: "output: {{ mysql_connection_output }}"
-
+- name: Make sure A can connect to B database
+  mysql_db:
+    login_user=root
+    login_password= "{{ mysql_root_password }}"
+    login_host= "{{ login_host }}"
+   
 - name: setup root password
-  ansible.builtin.command: mysql_secure_installation --set-root-pass {{mysql_root_password}}
-  when: mysql_connection_output.failed is true # don't give  {{}} in when condition
+    ansible.builtin.command: mysql_secure_installation --set-root-pass {{mysql_root_password}}
+    when: mysql_connection_output.failed is true # don't give  {{}} in when condition
+
+
 
