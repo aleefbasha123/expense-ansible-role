@@ -14,7 +14,7 @@
     name:
     - PyMySQL
     - cryptography
-    executable: pip.9
+    executable: pip3.9
 
 - name: Make sure A can connect to B database
   mysql_db:
