@@ -1,0 +1,17 @@
+- name: delete app directory
+  ansible.builtin.file:
+    path: "{{ app_location }}"
+    state: absent
+  ignore_erros: yes
+
+- name: create app directory
+  ansible.builtin.file:
+    path: "{{ app_location }}"
+    state: directory
+
+
+- name: downlaod extract code
+  ansible.builtin.unarchive:
+    src: /tmp/backend.zip # By default 
+    dest: "{{ app_location }}"
+    remote_src: yes    
