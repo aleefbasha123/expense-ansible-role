@@ -1,4 +1,4 @@
-- name: Configure DB server
+- name: Configure backend server
   hosts: backend
   become: yes
   roles:
