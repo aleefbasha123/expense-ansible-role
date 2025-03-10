@@ -1,1 +1,2 @@
-backend= 172.31.45.105
+login_hos: 172.31.32.54
+mysql_root_password: ExpenseApp@1
