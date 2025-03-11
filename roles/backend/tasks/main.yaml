@@ -27,6 +27,10 @@
 #   ansible.builtin.get_url:
 #     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
 #     dest: /tmp/backend.zip
+- name: run app pre-re-requsities
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-pre-req
 
 - name: unzip backend code
   ansible.builtin.unarchive:
@@ -34,10 +38,6 @@
     dest: /app
     remote_src: yes
 
-- name: run app pre-re-requsities
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: app-pre-req
 
 - name: install npm dependecnes
   ansible.builtin.command: npm install
