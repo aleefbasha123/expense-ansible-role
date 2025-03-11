@@ -12,7 +12,7 @@
 
 - name: downlaod backned code
   ansible.builtin.get_url:
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{ componet}}-v2.zip
+    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{ component}}-v2.zip
     dest: /tmp/backend.zip
 
 - name: downlaod extract code
